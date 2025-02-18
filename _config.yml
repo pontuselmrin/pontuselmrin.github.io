@@ -55,9 +55,9 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  name   : "Pontus Elmrin"
+  avatar : "/assets/images/IMG_2398.jpg"
+  bio    : "Statistics student at Columbia University"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -73,10 +73,10 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
+      read_time: false
+      comments: false
+      share: false
+      related: false
   # _pages
   - scope:
       path: "_pages"
