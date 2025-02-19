@@ -15,7 +15,7 @@ As such, I was happy to come across Eli Bendersky's [excellent article](https://
 
 The pictures demonstrate how we can view a matrix product as a sum of rank-one matrices. This idea appears in many useful contexts, such as when decomposing a matrix, or when computing attention scores in Transformers. 
 
-In general, reviewing different interpretations and visualizations of matrix multiplication can help with intuition. I’ve found it useful to make some flashcards summarizing these perspectives and revisiting them regularly, to keep the different perspectives in mind. I suggest anyone visit Bendersky's [article](https://eli.thegreenplace.net/2015/visualizing-matrix-multiplication-as-a-linear-combination/) and brush up on those perspectives to complement the one pictured above.
+In general, reviewing different interpretations and visualizations of matrix multiplication can help with intuition. I’ve found it useful to make some flashcards summarizing these perspectives to remember the different perspectives. I suggest anyone visit Bendersky's [article](https://eli.thegreenplace.net/2015/visualizing-matrix-multiplication-as-a-linear-combination/) and brush up on those perspectives to complement the one pictured above.
 
 
-[^1]: See https://en.wikipedia.org/wiki/Invertible_matrix
+[^1]: See e.g. https://en.wikipedia.org/wiki/Invertible_matrix.
