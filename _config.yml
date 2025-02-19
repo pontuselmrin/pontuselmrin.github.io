@@ -55,7 +55,7 @@ plugins:
 
 author:
   name   : "Pontus Elmrin"
-  avatar : "/assets/IMG.jpg"
+  avatar : "/assets/images/IMG.jpg"
   bio    : "Statistics student at Columbia University"
   links:
     - label: "GitHub"
