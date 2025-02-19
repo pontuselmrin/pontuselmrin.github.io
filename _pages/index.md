@@ -6,4 +6,4 @@ author_profile: true
 ---
 I'm a master's student in statistics at Columbia University interested in machine learning.
 
-<img src="/assets/images/columbia.jpg" alt="Columbia" style="width: 50%; height: auto;">
+![Columbia](/assets/images/columbia.jpg)
