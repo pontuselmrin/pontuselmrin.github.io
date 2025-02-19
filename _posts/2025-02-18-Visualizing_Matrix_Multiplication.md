@@ -6,7 +6,7 @@ categories:
 tags:
   - math
 ---
-In linear algebra, the ability to move between different perspectives on the same topic is usually very useful. A classic example of this is the long list of equivalent statements regarding matrix invertibility ([Wiki](https://en.wikipedia.org/wiki/Invertible_matrix)).
+In linear algebra, the ability to move between different perspectives on the same topic is typically very useful. A classic example of this is the long list of equivalent statements regarding matrix invertibility ([Wiki](https://en.wikipedia.org/wiki/Invertible_matrix)).
 
 As such, I was happy to come across [Eli Bendersky's excellent article](https://eli.thegreenplace.net/2015/visualizing-matrix-multiplication-as-a-linear-combination/) on different ways to visualize matrix multiplication. Inspired by his post, I wanted to highlight yet another way of looking at it:
 
