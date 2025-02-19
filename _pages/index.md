@@ -5,4 +5,7 @@ permalink: /
 author_profile: true
 ---
 I'm a master's student in statistics at Columbia University interested in machine learning.
-![Matrix Multiplication - Perspective 1](/assets/images/columbia.jpg)
+
+<br><br>
+
+<img src="/assets/images/columbia.jpg" alt="Columbia" style="width: 50%; height: auto;">
