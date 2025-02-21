@@ -15,7 +15,7 @@ Just as invertibility can be understood in multiple ways, so can matrix multipli
 
 The images illustrate how a matrix product can be viewed as a sum of rank-one matrices–– a perspective that appears in various contexts, such as matrix decomposition and attention mechanisms in Transformers. 
 
-In general, thinking of familiar concepts in new ways helps with intuition. Personally, I’ve found it helpful to create flashcards based on Bendersky's article and the decomposition above, and I would highly recommend doing the same.
+In general, thinking of familiar concepts in new ways helps with intuition. I’ve found it helpful to create flashcards based on Bendersky's article and the decomposition above, and I would highly recommend doing the same.
 
 
 [^1]: See e.g. https://en.wikipedia.org/wiki/Invertible_matrix.
