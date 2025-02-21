@@ -6,16 +6,16 @@ categories:
 tags:
   - math
 ---
-In linear algebra, the ability to move between different perspectives on the same topic is typically very useful. A classic example of this is the long list of equivalent statements regarding matrix invertibility.[^1]
+In linear algebra, the ability to shift between different perspectives on the same concept is very useful. A classic example is the long list of equivalent statements about matrix invertibility.[^1] 
 
-As such, I was happy to come across Eli Bendersky's [excellent article](https://eli.thegreenplace.net/2015/visualizing-matrix-multiplication-as-a-linear-combination/) on different ways to visualize matrix multiplication. Inspired by his post, I wanted to highlight yet another way of looking at it:
+Just as invertibility can be understood in multiple ways, so can matrix multiplication. I was therefore happy to come across Eli Bendersky's [excellent article](https://eli.thegreenplace.net/2015/visualizing-matrix-multiplication-as-a-linear-combination/) on visualizing matrix multiplication as linear combinations of columnns and rows. Inspired by his post, I wanted to highlight yet another way of looking at it:
 
 ![Matrix Multiplication - Perspective 1](/assets/images/matmul1.png)
 ![Matrix Multiplication - Perspective 2](/assets/images/matmul2.png)
 
-The pictures demonstrate how we can view a matrix product as a sum of rank-one matrices. This idea appears in many useful contexts, such as when decomposing a matrix, or when computing attention scores in Transformers. 
+The images illustrate how a matrix product can be viewed as a sum of rank-one matrices–– a perspective that appears in various contexts, such as matrix decomposition and attention mechanisms in Transformers. 
 
-In general, reviewing different interpretations and visualizations of matrix multiplication can help with intuition. I’ve found it useful to make some flashcards summarizing these perspectives to remember the different perspectives. I suggest anyone visit Bendersky's [article](https://eli.thegreenplace.net/2015/visualizing-matrix-multiplication-as-a-linear-combination/) and brush up on those perspectives to complement the one pictured above.
+In general, thinking of familiar concepts in new ways helps with intuition. Personally, I’ve found it helpful to create flashcards based on Bendersky's article and the decomposition above, and I would highly recommend doing the same.
 
 
 [^1]: See e.g. https://en.wikipedia.org/wiki/Invertible_matrix.
