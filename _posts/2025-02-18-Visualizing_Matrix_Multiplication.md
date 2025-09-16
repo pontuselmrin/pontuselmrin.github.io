@@ -5,6 +5,8 @@ categories:
   - blog
 tags:
   - math
+classes:
+  - wide
 ---
 In linear algebra, the ability to shift between different perspectives on the same concept is very useful. A classic example is the long list of equivalent statements about matrix invertibility.[^1] 
 
@@ -13,7 +15,7 @@ Just as invertibility can be understood in multiple ways, so can matrix multipli
 ![Matrix Multiplication - Perspective 1](/assets/images/matmul1.png)
 ![Matrix Multiplication - Perspective 2](/assets/images/matmul2.png)
 
-The images illustrate how a matrix product can be viewed as a sum of rank-one matrices–– a perspective that appears in various contexts, such as matrix decomposition and attention mechanisms in Transformers. 
+The images illustrate how a matrix product can be viewed as a sum of rank-one matrices– a perspective that appears in various contexts, such as matrix decomposition and attention mechanisms in Transformers. 
 
 In general, thinking of familiar concepts in new ways helps with intuition. I’ve found it helpful to create flashcards based on Bendersky's article and the decomposition above, and I would highly recommend doing the same.
 

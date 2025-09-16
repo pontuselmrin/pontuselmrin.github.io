@@ -1,0 +1,365 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+search: false
+---
+
+$content-width: 640px;          /* narrower column = wider side margins */
+$type-size-6: 0.9375rem;        /* 15px body text (MM’s default is 1rem=16px) */
+
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+// Variables
+$font-sans: -apple-system, Helvetica, Arial, sans-serif;
+$text-80: rgba(0, 0, 0, 0.8);
+$text-70: rgba(0, 0, 0, 0.7);
+$text-60: rgba(0, 0, 0, 0.6);
+$text-50: rgba(0, 0, 0, 0.5);
+$border-10: rgba(0, 0, 0, 0.1);
+$border-20: rgba(0, 0, 0, 0.2);
+$border-70: rgba(0, 0, 0, 0.7);
+$wrap-max: 700px;
+
+
+/* GitHub-flavored markdown overrides — load AFTER the imports */
+
+.layout--single .page__content {
+  color: #333;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+/* Links */
+.layout--single .page__content a { color: #4078c0; text-decoration: none; }
+.layout--single .page__content a:hover,
+.layout--single .page__content a:active { text-decoration: underline; }
+
+/* Headings (from your markdown.css scale) */
+.layout--single .page__content h1 { font-size: 2rem;   font-weight: 600; padding-bottom: .3em; border-bottom: 1px solid #eee; }
+.layout--single .page__content h2 { font-size: 1.5rem; font-weight: 600; padding-bottom: .3em; border-bottom: 1px solid #eee; }
+.layout--single .page__content h3 { font-size: 1.25rem; font-weight: 600; }
+.layout--single .page__content h4 { font-size: 1rem;   font-weight: 600; }
+.layout--single .page__content h5 { font-size: .875rem; font-weight: 600; }
+.layout--single .page__content h6 { font-size: .85rem;  font-weight: 600; color: #777; }
+
+/* Spacing & lists */
+.layout--single .page__content p,
+.layout--single .page__content blockquote,
+.layout--single .page__content ul,
+.layout--single .page__content ol,
+.layout--single .page__content dl,
+.layout--single .page__content table,
+.layout--single .page__content pre { margin: 0 0 16px; }
+
+.layout--single .page__content ul,
+.layout--single .page__content ol { padding-left: 2em; }
+
+/* Blockquote */
+.layout--single .page__content blockquote {
+  padding: 0 1em;
+  color: #777;
+  border-left: .25em solid #ddd;
+}
+
+/* Rules */
+.layout--single .page__content hr {
+  height: .25em;
+  margin: 24px 0;
+  background: #e7e7e7;
+  border: 0;
+}
+
+/* Tables */
+.layout--single .page__content table { width: 100%; overflow: auto; border-collapse: collapse; }
+.layout--single .page__content th,
+.layout--single .page__content td { padding: 6px 13px; border: 1px solid #ddd; }
+.layout--single .page__content tr { background: #fff; border-top: 1px solid #ccc; }
+.layout--single .page__content tr:nth-child(2n) { background: #f8f8f8; }
+
+/* Inline code & code blocks (match 85% sizing) */
+.layout--single .page__content code {
+  font-size: 85%;
+  background: rgba(0,0,0,.04);
+  border-radius: 3px;
+  padding: .2em .4em;
+}
+
+.layout--single .page__content pre,
+.layout--single .page__content .highlight pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background: #f7f7f7;
+  border-radius: 3px;
+}
+
+.layout--single .page__content pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 100%;
+}
+
+
+
+html {
+  font-family: $font-sans;
+  color: $text-80;
+  line-height: 1.5em;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+
+  .content {
+    margin-bottom: 120px;
+  }
+}
+
+a {
+  color: $text-80;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-sans;
+}
+
+h1 {
+  line-height: 1.2em;
+}
+
+.clear {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+.wrap {
+  max-width: $wrap-max;
+  margin: 0 auto;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+.nav {
+  margin: 15px 0;
+
+  a {
+    color: $text-60;
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 12px;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      display: inline;
+      margin-right: 10px;
+    }
+  }
+}
+
+.front-matter {
+  padding: 20px 0;
+  border-bottom: 1px solid $border-10;
+  border-top: 1px solid $border-10;
+
+  h4 {
+    font-family: $font-sans;
+  }
+
+  .bylines {
+    .byline {
+      margin-right: 20px;
+      float: left;
+
+      h3,
+      p {
+        margin: 0;
+        font-family: $font-sans;
+      }
+
+      h3 {
+        font-size: 9px;
+        text-transform: uppercase;
+        color: $text-50;
+      }
+
+      p {
+        font-size: 10px;
+        line-height: 1.6em;
+      }
+    }
+  }
+}
+
+.article {
+  font-size: 15px;
+  line-height: 1.6em;
+  color: $text-80;
+  margin: 50px 0;
+
+  blockquote {
+    margin: 0;
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+  }
+
+  h2 {
+    font-size: 26px;
+    border-bottom: 1px solid $border-20;
+    padding-bottom: 1rem;
+    padding-top: 1em;
+  }
+
+  .figure {
+    border-top: 1px solid hsla(0, 0%, 0%, 0.2);
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
+    padding: 20px 0;
+
+    .caption {
+      padding-top: 15px;
+      display: inline-block;
+      font-size: 13px;
+      line-height: 1.2em; // fixed typo
+    }
+
+    .caption-label {
+      font-weight: bold;
+    }
+  }
+
+  .footnote {
+    line-height: 0;
+  }
+
+  div.highlight {
+    border-top: 1px solid $border-20;
+    border-bottom: 1px solid $border-20;
+    font-size: 13px;
+    line-height: 1.3em;
+  }
+
+  ul {
+    padding: 0 15px;
+  }
+
+  hr {
+    border-bottom: none;
+    border-top: 1px solid $border-70;
+    margin: 33px auto;
+    width: 70px;
+  }
+}
+
+#bibliography {
+  border-top: 1px solid $border-10;
+
+  ol.bibliography {
+    padding-left: 15px;
+    padding-top: 30px;
+    font-size: 12px;
+    color: $text-50;
+  }
+}
+
+#blog {
+  margin-top: 80px;
+  margin-bottom: 100px;
+
+  #intro {
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.4em;
+    margin-bottom: 40px;
+  }
+
+  .quote {
+    margin-bottom: 30px;
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+  .post-date {
+    text-transform: uppercase;
+    color: $text-70;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .post-title {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 0;
+
+    a {
+      font-size: 18px;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .post-subtitle {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    line-height: 1.5em;
+  }
+
+  .year {
+    font-size: 18px;
+    position: relative;
+    right: 100px;
+    color: $text-50;
+    width: 100px;
+    margin-bottom: -24px;
+  }
+
+  #y2017.year,
+  #y2018.year {
+    margin-top: 0;
+  }
+}
+
+hr {
+  border-top: 1px solid #ccc; // make this a valid border
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    margin: 0 7px;
+  }
+}
