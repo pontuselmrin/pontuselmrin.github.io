@@ -5,8 +5,6 @@ categories:
   - blog
 tags:
   - math
-classes:
-  - wide
 ---
 In linear algebra, the ability to shift between different perspectives on the same concept is very useful. A classic example is the long list of equivalent statements about matrix invertibility.[^1] 
 
