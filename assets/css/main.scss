@@ -509,6 +509,41 @@ footer,
     margin-top: 16px !important;
   }
   
+  /* Update all link colors to #372222 */
+  a,
+  a:link,
+  a:visited {
+    color: #372222 !important;
+  }
+  
+  a:hover,
+  a:focus {
+    color: #372222 !important;
+    opacity: 0.8;
+  }
+  
+  /* Specific link types */
+  .page__content a,
+  .archive a,
+  .taxonomy__index a,
+  .taxonomy__section a,
+  .masthead__menu-item a,
+  .site-title a,
+  .page__title a {
+    color: #372222 !important;
+  }
+  
+  .page__content a:hover,
+  .archive a:hover,
+  .taxonomy__index a:hover,
+  .taxonomy__section a:hover,
+  .masthead__menu-item a:hover,
+  .site-title a:hover,
+  .page__title a:hover {
+    color: #372222 !important;
+    opacity: 0.8;
+  }
+  
   /* Apply the EXACT same pattern that works for archive elements to landing page with CORRECT layout class */
   body.layout--single .page__content,
   body.layout--single .page__inner-wrap,
@@ -555,4 +590,22 @@ footer,
   margin-inline: 0 !important;
   padding-left: 0; /* leave padding untouched unless needed */
   padding-right: 0; /* avoid accidental width shifts */
+}
+
+/* Text highlighting/selection color */
+::selection {
+  background-color: #223728 !important;
+  color: white !important;
+}
+
+::-moz-selection {
+  background-color: #223728 !important;
+  color: white !important;
+}
+
+/* Highlighted text (mark element) */
+mark {
+  background-color: #223728 !important;
+  color: white !important;
+  padding: 0.1em 0.2em !important;
 }

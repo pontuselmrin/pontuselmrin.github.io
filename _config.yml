@@ -20,6 +20,9 @@ github_username: pontuselmrin
 minimal_mistakes_skin: default
 search: false
 
+# MathJax settings
+mathjax: true
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
