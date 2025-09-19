@@ -20,8 +20,12 @@ $type-size-8 : 0.563em; // ~9px
 
 .page__content {
   h2 {
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    font-size: 26px !important; /* Match target */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+    padding-bottom: 1rem !important;
+    padding-top: 0.5em !important; /* Reduced from 1em for tighter spacing */
+    margin-top: 0.8em !important; /* Reduced top margin */
+    margin-bottom: 0.5em !important;
   }
 
 	h1, h2, h3, h4, h5, h6 {
@@ -107,34 +111,476 @@ $type-size-8 : 0.563em; // ~9px
   }
 }
 
-/* Custom styling to match target design */
-.page {
-  max-width: 700px !important;
-  width: 100% !important;
+/* Override base font sizes for target design */
+html {
+  font-size: 16px; /* Standard base font size */
 }
 
-#main {
-  max-width: 700px;
-  margin: 0 auto;
+body {
+  font-size: 1em; /* 16px base */
+  color: rgba(0, 0, 0, 0.8); /* Match target exactly */
+  font-family: -apple-system, Helvetica, arial, sans-serif; /* Match target font stack */
+}
+
+.page__content {
+  margin-top: 0 !important; /* Remove top margin to reduce gap from byline */
+  font-size: 0.9375em; /* 15px - matches target article size */
+  line-height: 1.6em; /* Match target exactly */
+  color: rgba(0, 0, 0, 0.8); /* Match target exactly */
+  font-family: -apple-system, Helvetica, arial, sans-serif; /* Match target font stack */
+  
+  p, li, dl {
+    font-size: 1em; /* Inherit the 15px from parent */
+  }
+  
+  /* Keep headings bold and properly sized */
+  h1 { 
+    font-size: 2.2em; 
+    font-weight: bold; /* Restore bold headings */
+  }
+  h2 { 
+    font-size: 1.8em;
+    font-weight: bold; /* Restore bold headings */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 1rem;
+    padding-top: 1em;
+  }
+  h3 { 
+    font-size: 1.5em;
+    font-weight: bold; /* Restore bold headings */
+  }
+  h4 { 
+    font-size: 1.25em;
+    font-weight: bold; /* Restore bold headings */
+  }
+  h5 { 
+    font-size: 1.1em;
+    font-weight: bold; /* Restore bold headings */
+  }
+  h6 { 
+    font-size: 1em;
+    font-weight: bold; /* Restore bold headings */
+  }
 }
 
 .page__title {
-  margin-bottom: 0.5em;
-  font-size: $type-size-1 !important;
+  margin-bottom: 2px !important; /* Very tight spacing between title and subtitle */
+  font-size: 2em !important; /* Slightly smaller for better proportion */
   line-height: 1.2em;
+  font-weight: bold !important; /* Restore bold title */
+  
+  a {
+    color: rgba(0, 0, 0, 0.8) !important; /* Match target - use !important to override theme */
+    font-weight: bold !important; /* Force bold on title links */
+    text-decoration: none;
+    
+    &:hover {
+      color: rgba(0, 0, 0, 0.8) !important;
+      text-decoration: none;
+    }
+  }
 }
 
 /* Subtitle/byline styling */
 .page__subtitle {
+  font-weight: bold;
   font-size: $type-size-4;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.8); /* Match target color */
   margin-bottom: 1em;
   line-height: 1.5em;
-  font-weight: normal;
+  font-family: -apple-system, Helvetica, arial, sans-serif; /* Match target font stack */
 }
 
 .page__bylines {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.page__bylines .byline {
+  margin-right: 20px;
+  float: left;
+}
+
+.page__bylines .byline h3,
+.page__bylines .byline p {
+  margin: 0;
+}
+
+.page__bylines .byline h3 {
+  font-size: 0.6em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.page__bylines .byline p {
+  font-size: 0.67em;
+  line-height: 1.6em;
+}
+
+/* Layout adjustments */
+.page__inner-wrap {
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+.sidebar {
+  margin-bottom: 1em;
+}
+
+.page header {
+  margin-bottom: 0.5em;
+}
+
+.page__meta {
+  margin-top: 0.5em;
+  margin-bottom: 35px !important; /* Reduced from 50px to bring body text closer */
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+/* Masthead alignment and sizing to match target */
+.masthead__inner-wrap {
+  max-width: 1000px !important; /* Match main container max-width */
+  margin: 0 auto !important;
+  padding: 1em !important; /* Keep original padding */
+}
+
+/* Main container sizing - align with masthead */
+#main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+/* Main container sizing - align with masthead */
+#main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+/* Layout spacing */
+.initial-content {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+@media (min-width: 80em) {
+  .page:not(.page--no-sidebar) {
+    max-width: 700px;
+  }
+}
+
+/* Body text styling to match target */
+.page__content p, 
+.page__content li,
+.page__content {
+  font-family: -apple-system, Helvetica, arial, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 24px !important; /* 1.6 ratio */
+  font-weight: 400 !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  -webkit-font-smoothing: auto !important; /* Match target - no antialiasing */
+}
+
+/* Ensure first paragraph after meta has proper top margin */
+.page__meta + * {
+  margin-top: 0 !important; /* No extra top margin since meta already has spacing */
+}
+
+/* Also target the content section directly after header */
+header + .page__content,
+header + section.page__content {
+  margin-top: 0 !important;
+}
+
+/* And first element inside content */
+.page__content > *:first-child {
+  margin-top: 0 !important;
+}
+
+/* Footnote styling to match target */
+.footnote, .footnotes {
+  font-size: 13px !important;
+  line-height: 0 !important;
+}
+
+.footnotes {
+  font-size: 13px !important;
+  line-height: 1.2em !important;
+}
+
+.footnotes ol {
+  font-size: 13px !important;
+  line-height: 1.2em !important;
+}
+
+.footnotes p {
+  font-size: 13px !important;
+  line-height: 1.2em !important;
+  margin: 0.5em 0 !important;
+}
+
+/* Figure styling to match target - target img elements for markdown images */
+.page__content figure,
+.page__content .figure {
+  border-top: 1px solid hsla(0, 0%, 0%, 0.2) !important;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.2) !important;
+  padding: 20px 0 !important;
+  margin: 1.5em 0 !important;
+  display: block !important;
+}
+
+/* Also style standalone images */
+.page__content p img {
+  border-top: 1px solid hsla(0, 0%, 0%, 0.2) !important;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.2) !important;
+  padding: 20px 0 !important;
+  margin: 1.5em 0 !important;
+  display: block !important;
+}
+
+/* Figure caption styling */
+.page__content figcaption,
+.page__content .caption {
+  padding-top: 15px !important;
+  display: inline-block !important;
+  font-size: 13px !important;
+  line-height: 1.2em !important;
+}
+
+/* Figure caption label (e.g., "Figure 1.") */
+.page__content .caption-label {
+  font-weight: bold !important;
+}
+
+/* Footer/bibliography styling to match target */
+.page__meta,
+.footnotes {
+  border-top: none !important; /* Remove this border since we use ::before for full-width */
+  border-bottom: none !important; /* No bottom border - extends to page end */
+  padding-top: 30px !important;
+  padding-bottom: 0 !important; /* No bottom padding */
+  margin-top: 2em !important;
+  margin-bottom: 0 !important; /* No bottom margin */
+  position: relative !important;
+}
+
+/* Make the border extend full width */
+.footnotes::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100vw !important;
+  right: -100vw !important;
+  height: 1px !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  z-index: -1 !important;
+}
+
+.footnotes ol {
+  padding-left: 15px !important;
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  line-height: 1.4em !important;
+}
+
+.footnotes ol li {
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  line-height: 1.4em !important;
+  margin-bottom: 0.5em !important;
+}
+
+/* Override the previous footnote styles for better match */
+.footnotes p {
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  line-height: 1.4em !important;
+  margin: 0.2em 0 !important;
+}
+
+/* Masthead alignment and sizing to match target */
+.masthead__inner-wrap {
+  max-width: 1000px !important; /* Match main container max-width */
+  margin: 0 auto !important;
+  padding: 1em !important; /* Keep original padding */
+  display: flex !important;
+  align-items: center !important;
+}
+
+@media (min-width: 64em) {
+  .masthead__inner-wrap {
+    padding-left: 150px !important; /* Start site-title where sidebar ends */
+    padding-right: 1em !important;
+  }
+  
+  .site-title {
+    margin-left: 1em !important; /* Match content padding */
+  }
+  
+  .masthead__menu {
+    margin-left: auto !important; /* Push nav to the right */
+    margin-right: calc((100vw - 1000px) / 2) !important; /* Align with content end */
+    max-width: 700px !important; /* Match content width */
+  }
+}
+
+/* Main container sizing - align with masthead */
+#main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.site-title {
+  font-size: 12px !important; /* Match target nav font size */
+  font-weight: normal !important; /* Not bold like target */
+  color: rgba(0, 0, 0, 0.6) !important; /* Match target nav color */
+}
+
+.masthead__menu-item a {
+  font-size: 12px !important; /* Match target nav font size */
+  color: rgba(0, 0, 0, 0.6) !important; /* Match target nav color */
+  font-weight: normal !important;
+}
+
+.masthead__menu-item a:hover {
+  font-weight: bold !important; /* Match target hover behavior */
+}
+
+/* Remove any remaining bottom borders/separations */
+.page__meta,
+.footnotes,
+.page__footer,
+footer {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Remove any separating lines at the very end */
+.page__meta:last-child,
+.footnotes:last-child,
+article:last-child,
+.page:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Reduce bottom spacing on page containers */
+.initial-content,
+#main {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure body and html have no bottom margin/padding */
+body,
+html {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  background-color: white !important; /* Ensure consistent white background */
+}
+
+/* Remove any footer background colors */
+.page__footer,
+footer,
+.site-footer {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+/* Ensure main content area has white background */
+#main,
+.initial-content {
+  background-color: white !important;
+  background: white !important;
+}
+
+/* Remove dividing lines on landing/home page */
+.page__content,
+.page__content p,
+.page {
+  border-bottom: none !important;
+}
+
+/* Remove any intro/content separators */
+.intro,
+.page__lead {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+/* Remove sidebar for posts and adjust layout */
+.page--no-sidebar {
+  float: none !important; /* Override the float: inline-end from theme */
+  width: 100% !important;
+  padding-inline-end: 0 !important;
+  margin: 0 auto !important; /* Center the content */
+  max-width: 700px; /* Limit content width like target */
+}
+
+/* Sidebar positioning for pages with author profile */
+@media (min-width: 64em) {
+  .sidebar {
+    width: 150px !important; /* Smaller sidebar for better proportions */
+    float: left !important;
+    margin-left: 0 !important;
+    opacity: 0.75;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .sidebar:hover {
+    opacity: 1;
+  }
+  
+  .page:not(.page--no-sidebar) {
+    float: right !important;
+    width: calc(100% - 150px) !important; /* Adjust for smaller sidebar */
+    padding-left: 1em !important; /* Add some gap */
+    margin-left: 0 !important;
+    max-width: 700px !important; /* Match article content width */
+    margin-right: 0 !important; /* Align content properly */
+  }
+}
+
+@media (max-width: 63.9em) {
+  .page--no-sidebar {
+    margin: 0 auto !important; /* Center on smaller screens too */
+  }
+}
+
+/* Ensure archive pages (like /posts) align with article content */
+@media (min-width: 64em) {
+  .layout--archive .page {
+    margin-left: calc(150px + 1em) !important; /* Align with sidebar + gap */
+    max-width: 700px !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Make subtitle bold */
+.page__subtitle {
+  font-weight: bold;
+  font-size: $type-size-4;
+  color: rgba(0, 0, 0, 0.9); /* Darker for better contrast */
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+
+/* Byline styling */
+.page__bylines {
+  margin-bottom: 1.5em;
   padding-bottom: 1em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -161,46 +607,24 @@ $type-size-8 : 0.563em; // ~9px
   line-height: 1.6em;
 }
 
+/* Improve text contrast and weight to match target */
+body {
+  color: rgba(0, 0, 0, 0.9); /* Darker for better contrast */
+  font-weight: 400; /* Slightly heavier font weight */
+}
+
 .page__content {
-  margin-top: 2em;
-  font-size: $type-size-5;
-  line-height: 1.6em;
+  color: rgba(0, 0, 0, 0.9); /* Darker text */
+  font-weight: 400;
 }
 
-/* Adjust container margins for tighter design */
-.page__inner-wrap {
-  margin-top: 1em;
-  margin-bottom: 3em;
+.page__title a {
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 500; /* Slightly bolder for titles */
 }
 
-/* Reduce sidebar margins */
-.sidebar {
-  margin-bottom: 1em;
-}
-
-/* Reduce header spacing */
-.page header {
-  margin-bottom: 1.5em;
-}
-
-/* Adjust main content area */
-.layout--single #main {
-  display: block;
+/* Ensure main content area gets proper sizing */
+#main {
+  max-width: 1000px;
   margin: 0 auto;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Reduce top margins */
-.page__meta {
-  margin-top: 0.5em;
-  margin-bottom: 1em;
-}
-
-/* Make h2 styling match target */
-.page__content h2 {
-  font-size: 1.625em; /* ~26px like target */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 1rem;
-  padding-top: 1em;
 }

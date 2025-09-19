@@ -19,9 +19,11 @@ layout: default
 {% endif %}
 
 <div id="main" role="main">
-  {% include sidebar.html %}
+  {% unless page.collection == 'posts' %}
+    {% include sidebar.html %}
+  {% endunless %}
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+  <article class="page{% if page.collection == 'posts' %} page--no-sidebar{% endif %}" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
@@ -42,6 +44,7 @@ layout: default
           <h4 class="page__subtitle">{{ page.excerpt | markdownify | strip_html | strip_newlines }}</h4>
           {% endif %}
           
+          {% if page.collection == 'posts' and page.date %}
           <div class="page__bylines">
             <div class="byline">
               <h3>Published</h3>
@@ -49,6 +52,7 @@ layout: default
             </div>
             <div style="clear: both;"></div>
           </div>
+          {% endif %}
           
           {% include page__meta.html %}
         </header>
@@ -72,7 +76,9 @@ layout: default
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
         {% include page__taxonomy.html %}
-        {% include page__date.html %}
+        {% unless page.collection == 'posts' %}
+          {% include page__date.html %}
+        {% endunless %}
       </footer>
 
       {% if page.share %}{% include social-share.html %}{% endif %}
