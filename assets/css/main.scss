@@ -1,290 +1,558 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 search: false
 ---
 
-<<<<<<< HEAD
-$content-width: 800px;          
-$type-size-6: 0.8rem;        
-
-
-=======
->>>>>>> 4ca40c4 (changing theme a bit)
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
-// Variables
-$font-sans: -apple-system, Helvetica, Arial, sans-serif;
-$text-80: rgba(0, 0, 0, 0.8);
-$text-70: rgba(0, 0, 0, 0.7);
-$text-60: rgba(0, 0, 0, 0.6);
-$text-50: rgba(0, 0, 0, 0.5);
-$border-10: rgba(0, 0, 0, 0.1);
-$border-20: rgba(0, 0, 0, 0.2);
-$border-70: rgba(0, 0, 0, 0.7);
-$wrap-max: 700px;
 
+/* ===================================================================
+   TYPOGRAPHY SCALE & BASE STYLES
+   =================================================================== */
 
+/* Type scale - reduced sizes to match target design */
+$type-size-1 : 1.8em;   // ~28.8px (reduced from ~39px)
+$type-size-2 : 1.6em;   // ~25.6px (reduced from ~31px)
+$type-size-3 : 1.3em;   // ~20.8px (reduced from ~25px)
+$type-size-4 : 1.1em;   // ~17.6px (reduced from ~20px)
+$type-size-5 : 0.94em;  // ~15px (target article size)
+$type-size-6 : 0.75em;  // ~12px
+$type-size-7 : 0.625em; // ~10px
+$type-size-8 : 0.563em; // ~9px
 
-
-
+/* Base typography */
 html {
-  font-family: $font-sans;
-  color: $text-80;
-  line-height: 1.5em;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  font-size: 16px; /* Standard base font size */
+  overflow-x: hidden !important; /* Prevent horizontal scrolling */
 }
 
 body {
-  margin: 0;
+  font-size: 1em; /* 16px base */
+  color: rgba(0, 0, 0, 0.9); /* Darker for better contrast */
+  font-family: -apple-system, Helvetica, arial, sans-serif; /* Match target font stack */
+  font-weight: 400; /* Slightly heavier font weight */
+  overflow-x: hidden !important; /* Prevent horizontal scrolling */
+  max-width: 100vw !important; /* Constrain to viewport width */
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  background-color: white !important; /* Ensure consistent white background */
+}
 
-  .content {
-    margin-bottom: 120px;
+.page__content {
+  margin-top: 0 !important; /* Remove top margin to reduce gap from byline */
+  font-size: 0.9375em; /* 15px - matches target article size */
+  line-height: 1.6em; /* Match target exactly */
+  color: rgba(0, 0, 0, 0.9); /* Darker text for better contrast */
+  font-family: -apple-system, Helvetica, arial, sans-serif; /* Match target font stack */
+  font-weight: 400;
+  
+  p, li, dl {
+    font-size: 1em; /* Inherit the 15px from parent */
+    font-family: -apple-system, Helvetica, arial, sans-serif !important;
+    line-height: 24px !important; /* 1.6 ratio */
+    font-weight: 400 !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    -webkit-font-smoothing: auto !important; /* Match target - no antialiasing */
   }
-}
-
-a {
-  color: $text-80;
-
-  &:hover {
-    text-decoration: none;
+  
+  /* Keep headings bold and properly sized */
+  h1 { 
+    font-size: 2.2em; 
+    font-weight: bold; /* Restore bold headings */
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $font-sans;
-}
-
-h1 {
-  line-height: 1.2em;
-}
-
-.clear {
-  clear: both;
-}
-
-.hidden {
-  display: none;
-}
-
-.wrap {
-  max-width: $wrap-max;
-  margin: 0 auto;
-}
-
-.mono {
-  font-family: monospace;
-}
-
-.nav {
-  margin: 15px 0;
-
-  a {
-    color: $text-60;
-    text-decoration: none;
-    border-bottom: none;
-    font-size: 12px;
-
-    &:hover {
-      font-weight: bold;
-    }
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-
-    li {
-      display: inline;
-      margin-right: 10px;
-    }
-  }
-}
-
-.front-matter {
-  padding: 20px 0;
-  border-bottom: 1px solid $border-10;
-  border-top: 1px solid $border-10;
-
-  h4 {
-    font-family: $font-sans;
-  }
-
-  .bylines {
-    .byline {
-      margin-right: 20px;
-      float: left;
-
-      h3,
-      p {
-        margin: 0;
-        font-family: $font-sans;
-      }
-
-      h3 {
-        font-size: 9px;
-        text-transform: uppercase;
-        color: $text-50;
-      }
-
-      p {
-        font-size: 10px;
-        line-height: 1.6em;
-      }
-    }
-  }
-}
-
-.article {
-  font-size: 15px;
-  line-height: 1.6em;
-  color: $text-80;
-  margin: 50px 0;
-
-  blockquote {
-    margin: 0;
-    padding: 0 1em;
-    color: #777;
-    border-left: 0.25em solid #ddd;
-  }
-
-  h2 {
-    font-size: 26px;
-    border-bottom: 1px solid $border-20;
+  h2 { 
+    font-size: 1.8em;
+    font-weight: bold; /* Restore bold headings */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 1rem;
     padding-top: 1em;
   }
-
+  h3 { 
+    font-size: 1.5em;
+    font-weight: bold; /* Restore bold headings */
+  }
+  h4 { 
+    font-size: 1.25em;
+    font-weight: bold; /* Restore bold headings */
+  }
+  h5 { 
+    font-size: 1.1em;
+    font-weight: bold; /* Restore bold headings */
+  }
+  h6 { 
+    font-size: 1em;
+    font-weight: bold; /* Restore bold headings */
+  }
+  
+  /* Figure styling to match target - target img elements for markdown images */
+  figure,
   .figure {
-    border-top: 1px solid hsla(0, 0%, 0%, 0.2);
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
-    padding: 20px 0;
-
-    .caption {
-      padding-top: 15px;
-      display: inline-block;
-      font-size: 13px;
-      line-height: 1.2em; // fixed typo
-    }
-
-    .caption-label {
-      font-weight: bold;
-    }
+    border-top: 1px solid hsla(0, 0%, 0%, 0.2) !important;
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.2) !important;
+    padding: 20px 0 !important;
+    margin: 1.5em 0 !important;
+    display: block !important;
   }
 
-  .footnote {
-    line-height: 0;
+  /* Also style standalone images */
+  p img {
+    border-top: 1px solid hsla(0, 0%, 0%, 0.2) !important;
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.2) !important;
+    padding: 20px 0 !important;
+    margin: 1.5em 0 !important;
+    display: block !important;
   }
 
-  div.highlight {
-    border-top: 1px solid $border-20;
-    border-bottom: 1px solid $border-20;
-    font-size: 13px;
-    line-height: 1.3em;
+  /* Figure caption styling */
+  figcaption,
+  .caption {
+    padding-top: 15px !important;
+    display: inline-block !important;
+    font-size: 13px !important;
+    line-height: 1.2em !important;
   }
 
-  ul {
-    padding: 0 15px;
+  /* Figure caption label (e.g., "Figure 1.") */
+  .caption-label {
+    font-weight: bold !important;
   }
-
-  hr {
-    border-bottom: none;
-    border-top: 1px solid $border-70;
-    margin: 33px auto;
-    width: 70px;
+  
+  /* First element styling */
+  > *:first-child {
+    margin-top: 0 !important;
   }
 }
 
-#bibliography {
-  border-top: 1px solid $border-10;
-
-  ol.bibliography {
-    padding-left: 15px;
-    padding-top: 30px;
-    font-size: 12px;
-    color: $text-50;
-  }
-}
-
-#blog {
-  margin-top: 80px;
-  margin-bottom: 100px;
-
-  #intro {
-    font-size: 14px;
-    font-style: italic;
-    line-height: 1.4em;
-    margin-bottom: 40px;
-  }
-
-  .quote {
-    margin-bottom: 30px;
-
-    p {
-      margin-bottom: 5px;
-    }
-  }
-
-  .post-date {
-    text-transform: uppercase;
-    color: $text-70;
-    font-size: 12px;
-    font-weight: bold;
-    margin-top: 4px;
-    margin-bottom: 4px;
-  }
-
-  .post-title {
-    display: inline-block;
-    font-weight: bold;
-    margin-bottom: 0;
-
-    a {
-      font-size: 18px;
+.page__title {
+  margin-bottom: 2px !important; /* Very tight spacing between title and subtitle */
+  font-size: 2em !important; /* Slightly smaller for better proportion */
+  line-height: 1.2em;
+  font-weight: bold !important; /* Restore bold title */
+  
+  a {
+    color: rgba(0, 0, 0, 0.8) !important; /* Match target - use !important to override theme */
+    font-weight: bold !important; /* Force bold on title links */
+    text-decoration: none;
+    
+    &:hover {
+      color: rgba(0, 0, 0, 0.8) !important;
       text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
     }
   }
+}
 
-  .post-subtitle {
-    font-size: 14px;
-    margin-top: 0;
-    margin-bottom: 25px;
-    line-height: 1.5em;
-  }
+/* Subtitle/byline styling */
+.page__subtitle {
+  font-weight: bold;
+  font-size: $type-size-4;
+  color: rgba(0, 0, 0, 0.9); /* Darker for better contrast */
+  margin-bottom: 1em;
+  line-height: 1.5em;
+  font-family: -apple-system, Helvetica, arial, sans-serif; /* Match target font stack */
+}
 
-  .year {
-    font-size: 18px;
-    position: relative;
-    right: 100px;
-    color: $text-50;
-    width: 100px;
-    margin-bottom: -24px;
-  }
+.page__inner-wrap .page__subtitle {
+  margin-top: 1.1rem !important; /* 17.6px top margin to mirror desired spacing */
+}
 
-  #y2017.year,
-  #y2018.year {
-    margin-top: 0;
+.page__bylines {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.page__bylines .byline {
+  margin-right: 20px;
+  float: left;
+}
+
+.page__bylines .byline h3,
+.page__bylines .byline p {
+  margin: 0;
+}
+
+.page__bylines .byline h3 {
+  font-size: 0.6em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.page__bylines .byline p {
+  font-size: 0.67em;
+  line-height: 1.6em;
+}
+
+/* Layout adjustments */
+.page__inner-wrap {
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+/* Note: Specific layout overrides are handled in the main media query below */
+
+.sidebar {
+  margin-bottom: 1em;
+}
+
+.page header {
+  margin-bottom: 0.5em;
+}
+
+.page__meta {
+  margin-top: 0.5em;
+  margin-bottom: 35px !important; /* Reduced from 50px to bring body text closer */
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+/* Masthead alignment and sizing to match target */
+.masthead__inner-wrap {
+  max-width: 700px !important; /* Force 700px width instead of responsive 968px */
+  width: 700px !important; /* Override any flex or responsive behavior */
+  margin: 0 auto !important;
+  padding: 1em !important; /* Use full padding like #main for responsive behavior */
+  display: flex !important;
+  justify-content: space-between !important; /* Distribute content evenly */
+  align-items: center !important;
+  box-sizing: border-box !important; /* Prevent width overflow */
+}
+
+/* On wider screens, remove horizontal padding to achieve exact 700px content */
+@media (min-width: 768px) {
+  .masthead__inner-wrap {
+    padding: 1em 0 !important; /* Remove horizontal padding on wider screens */
   }
 }
 
-hr {
-  border-top: 1px solid #ccc; // make this a valid border
+/* Main container sizing - align with masthead */
+#main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
-@media screen and (max-width: 700px) {
-  body {
-    margin: 0 7px;
+/* Override main container for layouts with sidebar */
+@media (min-width: 64em) {
+  body.layout--single #main,
+  body.layout--archive #main {
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
   }
+}
+
+/* Layout spacing */
+.initial-content {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+/* Override initial-content for layouts with sidebar */
+@media (min-width: 64em) {
+  body.layout--single .initial-content,
+  body.layout--archive .initial-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media (min-width: 80em) {
+  .page:not(.page--no-sidebar) {
+    max-width: 700px;
+  }
+}
+
+/* Also target the content section directly after header */
+header + .page__content,
+header + section.page__content {
+  margin-top: 0 !important;
+}
+
+/* Footnote styling to match target */
+.footnote, .footnotes {
+  font-size: 13px !important;
+  line-height: 0 !important;
+}
+
+.footnotes {
+  font-size: 13px !important;
+  line-height: 1.2em !important;
+}
+
+.footnotes ol {
+  font-size: 13px !important;
+  line-height: 1.2em !important;
+}
+
+.footnotes p {
+  font-size: 13px !important;
+  line-height: 1.2em !important;
+  margin: 0.5em 0 !important;
+}
+
+/* Footer/bibliography styling to match target */
+.page__meta,
+.footnotes {
+  border-top: none !important; /* Remove this border since we use ::before for full-width */
+  border-bottom: none !important; /* No bottom border - extends to page end */
+  padding-top: 30px !important;
+  padding-bottom: 0 !important; /* No bottom padding */
+  margin-top: 2em !important;
+  margin-bottom: 0 !important; /* No bottom margin */
+  position: relative !important;
+}
+
+/* Make the border extend full width */
+.footnotes::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100vw !important;
+  right: -100vw !important;
+  height: 1px !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  z-index: -1 !important;
+}
+
+.footnotes ol {
+  padding-left: 15px !important;
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  line-height: 1.4em !important;
+}
+
+.footnotes ol li {
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  line-height: 1.4em !important;
+  margin-bottom: 0.5em !important;
+}
+
+/* Remove bottom spacing on page containers */
+.initial-content {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.site-title {
+  font-size: 12px !important; /* Match target nav font size */
+  font-weight: normal !important; /* Not bold like target */
+  color: rgba(0, 0, 0, 0.6) !important; /* Match target nav color */
+  margin-left: 0 !important; /* Remove left margin */
+}
+
+.masthead__menu-item a {
+  font-size: 12px !important; /* Match target nav font size */
+  color: rgba(0, 0, 0, 0.6) !important; /* Match target nav color */
+  font-weight: normal !important;
+}
+
+.masthead__menu-item a:hover {
+  font-weight: bold !important; /* Match target hover behavior */
+}
+
+/* Fix masthead menu width by constraining visible-links */
+.visible-links {
+  max-width: 700px !important; /* Match content width */
+  width: 700px !important; /* Force consistent width */
+}
+
+.masthead__menu {
+  max-width: 700px !important; /* Ensure menu doesn't exceed content width */
+}
+
+/* Remove any remaining bottom borders/separations */
+.page__meta,
+.footnotes,
+.page__footer,
+footer {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Remove any separating lines at the very end */
+.page__meta:last-child,
+.footnotes:last-child,
+article:last-child,
+.page:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Reduce bottom spacing on page containers */
+.initial-content,
+#main {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure body and html have no bottom margin/padding */
+body,
+html {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  background-color: white !important; /* Ensure consistent white background */
+}
+
+/* Remove any footer background colors */
+.page__footer,
+footer,
+.site-footer {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+/* Ensure main content area has white background */
+#main,
+.initial-content {
+  background-color: white !important;
+  background: white !important;
+}
+
+/* Remove dividing lines on landing/home page */
+.page__content,
+.page__content p,
+.page {
+  border-bottom: none !important;
+}
+
+/* Remove any intro/content separators */
+.intro,
+.page__lead {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+/* Remove sidebar for posts and adjust layout */
+.page--no-sidebar {
+  float: none !important; /* Override the float: inline-end from theme */
+  width: 100% !important;
+  padding-inline-end: 0 !important;
+  margin: 0 auto !important; /* Center the content */
+  max-width: 700px; /* Limit content width like target */
+}
+
+/* UNIFIED LAYOUT FIX - Align with masthead positioning */
+@media (min-width: 64em) {
+  /* Reset theme defaults that interfere with our layout */
+  .page {
+    float: none !important;
+    width: auto !important;
+    padding-inline-end: 0 !important;
+  }
+  
+  /* Calculate proper positioning based on centered 700px masthead */
+  /* Viewport center minus half masthead width = left edge of site-title */
+  /* 50vw - 350px = where site-title starts */
+  /* Sidebar should end there, so: sidebar-start = 50vw - 350px - sidebar-width */
+  
+  /* Sidebar positioning - end where site-title starts */
+  .sidebar {
+    position: fixed !important;
+    left: calc(50vw - 350px - 150px - 1em) !important; /* End 1em before site-title starts */
+    top: 80px !important; /* Adjust based on masthead height */
+    width: 150px !important;
+    opacity: 0.75;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 10;
+  }
+  
+  .sidebar:hover {
+    opacity: 1;
+  }
+  
+  /* Main content positioning - center like masthead, not align with site-title edge */
+  body.layout--single #main .page:not(.page--no-sidebar),
+  body.layout--single #main .page, /* Add this to catch all single pages */
+  body.layout--archive #main .page,
+  body.layout--archive #main .archive,
+  body.layout--single #main .archive,
+  .layout--archive .page,
+  .layout--archive .archive,
+  .layout--single .page, /* Add specific single layout targeting */
+  body.layout--single .page, /* Add body-specific single targeting */
+  .archive {
+    margin: 0 auto !important; /* Center the content like masthead */
+    max-width: 700px !important;
+    width: 700px !important;
+    padding: 0 !important;
+    float: none !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Specific targeting for archive page elements */
+  .layout--archive .taxonomy__index,
+  .layout--archive .taxonomy__section,
+  .layout--archive .entries-list,
+  .layout--archive .entries-grid,
+  body.layout--archive .taxonomy__index,
+  body.layout--archive .taxonomy__section,
+  body.layout--archive .entries-list,
+  body.layout--archive .entries-grid {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 700px !important;
+    width: 100% !important;
+  }
+  
+  /* Add top margin to archive div */
+  .archive {
+    margin-top: 16px !important;
+  }
+  
+  /* Apply the EXACT same pattern that works for archive elements to landing page with CORRECT layout class */
+  body.layout--single .page__content,
+  body.layout--single .page__inner-wrap,
+  body.layout--single header,
+  .layout--single .page__content,
+  .layout--single .page__inner-wrap,
+  .layout--single header {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 700px !important;
+    width: 100% !important;
+  }
+  
+  /* Remove any flex layouts that might interfere */
+  body.layout--single .initial-content,
+  body.layout--archive .initial-content {
+    display: block !important;
+  }
+}
+
+@media (max-width: 63.9em) {
+  .page--no-sidebar {
+    margin: 0 auto !important; /* Center on smaller screens too */
+  }
+  
+  .sidebar {
+    position: static !important;
+    width: 100% !important;
+  }
+}
+
+/* Remove bylines that appear later in the file - this is a duplicate */
+
+.page__title a {
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 500; /* Slightly bolder for titles */
+}
+
+/* Override margin for the /posts/ masthead menu anchor to remove horizontal spacing */
+.masthead__menu-item a[href="/posts/"] {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  /* Also reset logical margins in case future refactor uses margin-inline */
+  margin-inline: 0 !important;
+  padding-left: 0; /* leave padding untouched unless needed */
+  padding-right: 0; /* avoid accidental width shifts */
 }
