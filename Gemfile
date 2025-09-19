@@ -1,21 +1,12 @@
+# Gemfile (GitHub Pages-native)
 source "https://rubygems.org"
 
-gem "bigdecimal"
-gem "csv"
-gem "github-pages", group: :jekyll_plugins
+gem "github-pages", group: :jekyll_plugins   # pins Jekyll + allowed plugins
 
-gem "tzinfo-data"
-gem "wdm", "~> 0.1.0" if Gem.win_platform?
+# Local dev only:
+gem "webrick", "~> 1.9", group: :development
 
-# If you have any plugins, put them here!
-group :jekyll_plugins do
-  gem "jekyll-paginate"
-  gem "jekyll-sitemap"
-  gem "jekyll-gist"
-  gem "jekyll-feed"
-  gem "jemoji"
-  gem "jekyll-include-cache"
-  gem "jekyll-algolia"
-end
+# Windows-only helpers:
+gem "tzinfo-data", platforms: [:mswin, :mingw, :x64_mingw]
+gem "wdm", "~> 0.1.0", platforms: [:mswin, :mingw, :x64_mingw]
 
-gem "webrick", "~> 1.9"
