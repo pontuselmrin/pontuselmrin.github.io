@@ -1,6 +1,8 @@
 # Gemfile (GitHub Pages-native)
 source "https://rubygems.org"
 
+gem "bigdecimal"
+gem "csv"
 gem "github-pages", group: :jekyll_plugins   # pins Jekyll + allowed plugins
 
 # Local dev only:

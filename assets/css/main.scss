@@ -591,21 +591,3 @@ footer,
   padding-left: 0; /* leave padding untouched unless needed */
   padding-right: 0; /* avoid accidental width shifts */
 }
-
-/* Text highlighting/selection color */
-::selection {
-  background-color: #223728 !important;
-  color: white !important;
-}
-
-::-moz-selection {
-  background-color: #223728 !important;
-  color: white !important;
-}
-
-/* Highlighted text (mark element) */
-mark {
-  background-color: #223728 !important;
-  color: white !important;
-  padding: 0.1em 0.2em !important;
-}
