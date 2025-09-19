@@ -1,5 +1,6 @@
 ---
 title: "Visualizing Matrix Multiplication"
+subtitle: "Exploring different perspectives on matrix multiplication, including viewing it as a sum of rank-one matrices for better intuition and understanding."
 date: 2025-02-18T15:34:30-04:00
 categories:
   - blog

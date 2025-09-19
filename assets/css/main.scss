@@ -1,0 +1,206 @@
+---
+search: false
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* type scale - reduced sizes to match target design */
+$type-size-1 : 1.8em;   // ~28.8px (reduced from ~39px)
+$type-size-2 : 1.6em;   // ~25.6px (reduced from ~31px)
+$type-size-3 : 1.3em;   // ~20.8px (reduced from ~25px)
+$type-size-4 : 1.1em;   // ~17.6px (reduced from ~20px)
+$type-size-5 : 0.94em;  // ~15px (target article size)
+$type-size-6 : 0.75em;  // ~12px
+$type-size-7 : 0.625em; // ~10px
+$type-size-8 : 0.563em; // ~9px
+
+
+.page__content {
+  h2 {
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $border-color;
+  }
+
+	h1, h2, h3, h4, h5, h6 {
+		.header-link {
+			position: relative;
+			inset-inline-start: 0.5em;
+			opacity: 0;
+			font-size: 0.8em;
+			-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+			-moz-transition: opacity 0.2s ease-in-out 0.1s;
+			-o-transition: opacity 0.2s ease-in-out 0.1s;
+			transition: opacity 0.2s ease-in-out 0.1s;
+		}
+
+		&:hover .header-link {
+			opacity: 1;
+		}
+	}
+
+  p,
+  li,
+  dl {
+    font-size: $type-size-5;
+  }
+
+  /* paragraph indents */
+  p {
+    margin: 0 0 $indent-var;
+
+    /* sibling indentation*/
+    @if $paragraph-indent == true {
+      & + p {
+        text-indent: $indent-var;
+        margin-top: -($indent-var);
+      }
+    }
+  }
+
+  a:not(.btn) {
+    &:hover {
+      text-decoration: underline;
+
+      img {
+        box-shadow: 0 0 10px rgba(#000, 0.25);
+      }
+    }
+  }
+
+  :not(pre) > code {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    font-size: 0.8em;
+    background: $code-background-color;
+    border-radius: $border-radius;
+
+    &::before,
+    &::after {
+      letter-spacing: -0.2em;
+      content: "\00a0"; /* non-breaking space*/
+    }
+  }
+
+  dt {
+    margin-top: 1em;
+    font-family: $sans-serif;
+    font-weight: bold;
+  }
+
+  dd {
+    margin-inline-start: 1em;
+    font-family: $sans-serif;
+    font-size: $type-size-6;
+  }
+
+  .small {
+    font-size: $type-size-6;
+  }
+
+  /* blockquote citations */
+  blockquote + .small {
+    margin-top: -1.5em;
+    padding-inline-start: 1.25rem;
+  }
+}
+
+/* Custom styling to match target design */
+.page {
+  max-width: 700px !important;
+  width: 100% !important;
+}
+
+#main {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.page__title {
+  margin-bottom: 0.5em;
+  font-size: $type-size-1 !important;
+  line-height: 1.2em;
+}
+
+/* Subtitle/byline styling */
+.page__subtitle {
+  font-size: $type-size-4;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 1em;
+  line-height: 1.5em;
+  font-weight: normal;
+}
+
+.page__bylines {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.page__bylines .byline {
+  margin-right: 20px;
+  float: left;
+}
+
+.page__bylines .byline h3,
+.page__bylines .byline p {
+  margin: 0;
+}
+
+.page__bylines .byline h3 {
+  font-size: $type-size-8;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.page__bylines .byline p {
+  font-size: $type-size-7;
+  line-height: 1.6em;
+}
+
+.page__content {
+  margin-top: 2em;
+  font-size: $type-size-5;
+  line-height: 1.6em;
+}
+
+/* Adjust container margins for tighter design */
+.page__inner-wrap {
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+/* Reduce sidebar margins */
+.sidebar {
+  margin-bottom: 1em;
+}
+
+/* Reduce header spacing */
+.page header {
+  margin-bottom: 1.5em;
+}
+
+/* Adjust main content area */
+.layout--single #main {
+  display: block;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Reduce top margins */
+.page__meta {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+/* Make h2 styling match target */
+.page__content h2 {
+  font-size: 1.625em; /* ~26px like target */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 1rem;
+  padding-top: 1em;
+}
