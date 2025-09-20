@@ -1,0 +1,1 @@
+// Navigation is now working - no debug needed

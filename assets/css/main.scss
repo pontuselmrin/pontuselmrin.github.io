@@ -364,8 +364,45 @@ header + section.page__content {
   width: 700px !important; /* Force consistent width */
 }
 
+/* Make visible-links responsive below 700px */
+@media (max-width: 700px) {
+  .visible-links {
+    width: 100% !important; /* Use full available width */
+    max-width: none !important; /* Remove max-width constraint */
+    overflow: visible !important; /* Allow content to show even if it extends beyond container */
+    flex-wrap: nowrap !important; /* Prevent wrapping */
+  }
+  
+  /* Ensure the greedy nav container can accommodate the overflow */
+  .greedy-nav {
+    overflow: visible !important;
+    width: 100% !important;
+  }
+  
+  /* Make sure masthead itself doesn't clip content */
+  .masthead__menu {
+    overflow: visible !important;
+    width: 100% !important;
+  }
+  
+  /* Ensure masthead inner wrap uses full width */
+  .masthead__inner-wrap {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 1em !important;
+  }
+}
+
 .masthead__menu {
   max-width: 700px !important; /* Ensure menu doesn't exceed content width */
+}
+
+/* Responsive masthead menu for smaller screens */
+@media (max-width: 700px) {
+  .masthead__menu {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 /* Remove any remaining bottom borders/separations */
@@ -590,4 +627,93 @@ footer,
   margin-inline: 0 !important;
   padding-left: 0; /* leave padding untouched unless needed */
   padding-right: 0; /* avoid accidental width shifts */
+}
+
+/* Fix Posts link hover behavior - remove animated bar, use simple color change like site-title */
+.masthead__menu-item a[href="/posts/"]:hover {
+  font-weight: bold !important; /* Match site-title hover behavior */
+}
+
+/* Remove any underline or bar animations from Posts link */
+.masthead__menu-item a[href="/posts/"]:before,
+.masthead__menu-item a[href="/posts/"]:after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Ensure no background or border animations */
+.masthead__menu-item a[href="/posts/"] {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.masthead__menu-item a[href="/posts/"]:hover {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+/* AGGRESSIVE: Force /posts/ link to always be visible regardless of screen size */
+a[href="/posts/"],
+.masthead__menu-item a[href="/posts/"],
+.visible-links a[href="/posts/"],
+.hidden-links a[href="/posts/"] {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  clip: auto !important;
+  clip-path: none !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
+}
+
+/* Force the parent menu item to be visible */
+.masthead__menu-item:has(a[href="/posts/"]),
+.visible-links .masthead__menu-item:has(a[href="/posts/"]),
+.hidden-links .masthead__menu-item:has(a[href="/posts/"]),
+li.masthead__menu-item:has(a[href="/posts/"]) {
+  display: list-item !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  clip: auto !important;
+  clip-path: none !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Fallback for browsers without :has() support */
+.masthead__menu-item[data-preserve="true"],
+.visible-links .masthead__menu-item[data-preserve="true"],
+.hidden-links .masthead__menu-item[data-preserve="true"] {
+  display: list-item !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+}
+
+.masthead__menu-item[data-preserve="true"] a,
+.visible-links .masthead__menu-item[data-preserve="true"] a,
+.hidden-links .masthead__menu-item[data-preserve="true"] a {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
 }
