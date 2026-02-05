@@ -13,15 +13,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: "Pontus Elmrin's website"
+title: "Pontus Elmrin"
 email:
-description: ""
+description: "Personal website of Pontus Elmrin."
+url: "https://pontuselmrin.github.io"
 github_username: pontuselmrin
 minimal_mistakes_skin: default
 search: false
 
-# MathJax settings
-mathjax: true
+# KaTeX settings
+katex: true
 
 # Build settings
 markdown: kramdown
